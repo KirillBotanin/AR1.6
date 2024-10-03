@@ -22,33 +22,22 @@
       gesture-detector
       id="scene"
     >
-      <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="anime1.glb"
-        >
-        </a-asset-item>
-      </a-assets>
 
       <a-marker
         type="pattern"
         url="pattern-kirieshka.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
         id="markerA"
+        emitevents="true"
       >
-        <a-entity
-          id="bowser-model"
-          gltf-model="#bowser"
-          position="0 0 0"
-          scale="1 1 1"
-          class="clickable"
-          gesture-handler
-        >
-        </a-entity>
       </a-marker>
+
       <a-entity camera></a-entity>
     </a-scene>
+
+    <script>
+      document.querySelector('#markerA').addEventListener('markerFound', function() {
+        window.location.href = 'https://ya.ru';
+      });
+    </script>
   </body>
 </html>
